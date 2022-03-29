@@ -25,16 +25,18 @@ export const fetchUserFailure = (error) => {
   };
 };
 
-export const fetchUsers = (dispatch) => {
-  dispatch(fetchUserRequest);
-  axios
-    .get("https://jsonplaceholder.typicode.com/users")
-    .then((response) => {
-      const users = response.data;
-      dispatch(fetchUserSuccess(users));
-    })
-    .catch((error) => {
-      const errormsg = error.message;
-      dispatch(fetchUserFailure(errormsg));
-    });
+export const fetchUsers = () => {
+  return (dispatch) => {
+    dispatch(fetchUserRequest);
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((response) => {
+        const users = response.data;
+        dispatch(fetchUserSuccess(users));
+      })
+      .catch((error) => {
+        const errormsg = error.message;
+        dispatch(fetchUserFailure(errormsg));
+      });
+  };
 };
