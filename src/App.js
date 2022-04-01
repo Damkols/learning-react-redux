@@ -1,17 +1,20 @@
 import "./App.css";
 import CakeContainer from "./components/CakeContainer";
 import { Provider } from "react-redux";
-import store from "./redux/store";
 import PepsiContainer from "./components/PepsiContainer";
 import User from "./components/User";
+import UserContainer from "./UserContainer";
+import store from "./redux/store";
+import store2 from "./redux2/store2";
 
 function App() {
   return (
-    <Provider store={store}>
+    <Provider store={store2}>
       <div className="App">
-        <CakeContainer />
+        {/* <CakeContainer />
         <PepsiContainer />
-        <User />
+        <User /> */}
+        <UserContainer />
       </div>
     </Provider>
   );
